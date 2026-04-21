@@ -12,20 +12,40 @@
 
         <p>Point coordinates, relative to the tool center (orange dot)</p>
         <div id="point-coordinates">
-            <div>
-                <label for="point-1">Point 1:</label>
-                <input type="text" name="point-1" id="">
+            <div id="point-1-coordinates">
+                <label>Point 1: </label>
+                <span>
+                    <label for="point-1-x">x:</label>
+                    <input type="number" name="point-1-x" id="" max="117" min="-138">
+                    <label for="point-1-y">y:</label>
+                    <input type="number" name="point-1-y" id="" max="117" min="-138">
+                </span>
             </div>
-            <div>
-                <label for="point-2">Point 2:</label>
-                <input type="text" name="point-2" id="">
+            <div id="point-2-coordinates">
+                <label>Point 2: </label>
+                <span>
+                    <label for="point-2-x">x:</label>
+                    <input type="number" name="point-2-x" id="" max="117" min="-138">
+                    <label for="point-2-y">y:</label>
+                    <input type="number" name="point-2-y" id="" max="117" min="-138">
+                </span>
             </div>
-            <div>
-                <label for="point-3">Point 3:</label>
-                <input type="text" name="point-3" id="">
+            <div id="point-3-coordinates">
+                <label>Point 3: </label>
+                <span>
+                    <label for="point-3-x">x:</label>
+                    <input type="number" name="point-3-x" id="" max="117" min="-138">
+                    <label for="point-3-y">y:</label>
+                    <input type="number" name="point-3-y" id="" max="117" min="-138">
+                </span>
             </div>
+
         </div>
         <button>New point</button>
+
+        <div>
+            <button id="generate-button">Generate tool!</button>
+        </div>
     </form>
 </body>
 </html>
