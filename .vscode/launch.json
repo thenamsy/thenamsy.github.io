@@ -30,7 +30,7 @@
             "request": "launch",
             "reAttach": true,
             "addonPath": "${workspaceFolder}"
-        }
+        },
         {
             "name": "Launch Tool Editor",
             "type": "firefox",
