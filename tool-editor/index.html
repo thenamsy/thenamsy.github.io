@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprocket Rocket Tool Editor</title>
     <link rel="stylesheet" href="style.css">
-    <script src="generate.js"></script>
+    <script src="generate.js" defer></script>
 </head>
 <body>
     <h1>Sprocket Rocket Tool Editor</h1>
@@ -19,31 +19,31 @@
                 <label>Point 1: </label>
                 <span>
                     <label for="point-1-x">x:</label>
-                    <input type="number" name="point-1-x" id="" max="117" min="-138" class="coordinate-input">
+                    <input type="number" name="point-1-x" max="117" min="-138" class="coordinate-input">
                     <label for="point-1-y">y:</label>
-                    <input type="number" name="point-1-y" id="" max="117" min="-138" class="coordinate-input">
+                    <input type="number" name="point-1-y" max="117" min="-138" class="coordinate-input">
                 </span>
             </div>
             <div id="point-2-coordinates">
                 <label>Point 2: </label>
                 <span>
                     <label for="point-2-x">x:</label>
-                    <input type="number" name="point-2-x" id="" max="117" min="-138" class="coordinate-input">
+                    <input type="number" name="point-2-x" max="117" min="-138" class="coordinate-input">
                     <label for="point-2-y">y:</label>
-                    <input type="number" name="point-2-y" id="" max="117" min="-138" class="coordinate-input">
+                    <input type="number" name="point-2-y" max="117" min="-138" class="coordinate-input">
                 </span>
             </div>
             <div id="point-3-coordinates">
                 <label>Point 3: </label>
                 <span>
                     <label for="point-3-x">x:</label>
-                    <input type="number" name="point-3-x" id="" max="117" min="-138" class="coordinate-input">
+                    <input type="number" name="point-3-x" max="117" min="-138" class="coordinate-input">
                     <label for="point-3-y">y:</label>
-                    <input type="number" name="point-3-y" id="" max="117" min="-138" class="coordinate-input">
+                    <input type="number" name="point-3-y" max="117" min="-138" class="coordinate-input">
                 </span>
             </div>
 
-            <button type="button">New point</button>
+            <button type="button" id="add-point-button">Add point</button>
 
         </fieldset>
 
