@@ -11,6 +11,10 @@ function createUnencodedArray() {
         //    break generateBlock;
         //}
     }
+    let joinFirstLastBox =  document.querySelector("#join-up");
+    if (joinFirstLastBox.checked) {
+        dataArray = dataArray.concat(dataArray.slice(0,2));
+    }
 
     let toolTypeButtons = document.getElementsByName("tool-type");
 
@@ -34,7 +38,7 @@ function createUnencodedArray() {
         }
     }
     
-    // console.log(dataArray);
+    console.log(dataArray);
     return dataArray;
 }
 
@@ -44,27 +48,41 @@ function createUnencodedArray() {
         for (let i = 0; i < (unencodedArray.length - 1); i++) {
             unencodedArray[i] += 10; // make coordinates relative to top left corner of edit bay instead of ship center
             if (unencodedArray[i] < 0) {
-                unencodedArray[i] += 256; // editor quirks
+                unencodedArray[i] += 256; // negative values are stored as numbers ranging from 128-256 ingame
             }
         }
 
         unencodedUInt8 = new Uint8Array(unencodedArray);
-        console.log(unencodedUInt8);
+        //console.log(unencodedUInt8);
         deflatedUInt8= fflate.deflateSync(unencodedUInt8);
-        console.log(deflatedUInt8);
+        //console.log(deflatedUInt8);
         encodedUInt8 = deflatedUInt8.toBase64();
-        console.log(encodedUInt8);
+        //console.log(encodedUInt8);
         
+        outputText = document.querySelector("#output-text");
+        outputText.value = encodedUInt8;
     }
+
+function addPoint() {
+
+}
+
+function copyCode(){
+    outputText = document.querySelector("#output-text");
+    navigator.clipboard.writeText(outputText.value);
+}
 
 function main() {
     const fflate = window.fflate;
-
+    
     const generateButton = document.querySelector("#generate-button");
     generateButton.addEventListener("click", generateCode);
     
     // const addPointButton = document.querySelector("#add-point-button")
     // addPointButton.addEventListener("click", addPoint)
+
+    const copyButton = document.querySelector("#copy-button");
+    copyButton.addEventListener("click", copyCode);
 }
 
 main();
