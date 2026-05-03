@@ -47,9 +47,7 @@ function createUnencodedArray() {
 
         for (let i = 0; i < (unencodedArray.length - 1); i++) {
             unencodedArray[i] += 10; // make coordinates relative to top left corner of edit bay instead of ship center
-            if (unencodedArray[i] < 0) {
-                unencodedArray[i] += 256; // negative values are stored as numbers ranging from 128-256 ingame
-            }
+            unencodedArray[i] += (unencodedArray[i] < 0) ? 256 : 0;// negative values are stored as numbers ranging from 128-256 ingame
         }
 
         unencodedUInt8 = new Uint8Array(unencodedArray);
@@ -64,7 +62,42 @@ function createUnencodedArray() {
     }
 
 function addPoint() {
+    const coordinateInputs = document.querySelector("#coordinate-inputs");
 
+    let newElement = document.createElement("div");
+    newElement.id = `point-${newPointNumber}-coordinates`
+    newElement.innerHTML = `
+        <label>Point ${newPointNumber}: </label>
+        <span>
+            <label for="point-${newPointNumber}-x">x:</label>
+            <input type="number" id="point-${newPointNumber}-x" max="117" min="-138" class="coordinate-input">
+            <label for="point-${newPointNumber}-y">y:</label>
+            <input type="number" id="point-${newPointNumber}-y" max="117" min="-138" class="coordinate-input">
+        </span>`;
+    
+    // let removeNewPointButton = newElement.querySelector("button");
+    // removeNewPointButton.addEventListener("click", removePoint);
+
+    coordinateInputs.appendChild(newElement);
+    newPointNumber += 1;
+}
+
+/* function removePoint(event) {
+    let pointIndex = Number(event.currentTarget.dataset.pointIndex) - 1;
+    const coordinateInputs = document.querySelector("#coordinate-inputs");
+    let coordinateInputArray = Array.from(coordinateInputs.children);
+
+    coordinateInputArray.splice(pointIndex, 1);
+
+    console.log(pointIndex);
+    console.log(coordinateInputArray);
+}
+*/
+
+function removeLastPoint() {
+    let points = document.querySelector("#coordinate-inputs");
+    points.lastChild.remove();
+    newPointNumber -= 1;
 }
 
 function copyCode(){
@@ -73,16 +106,26 @@ function copyCode(){
 }
 
 function main() {
+    addPoint();
+    addPoint();
+    addPoint();
+
     const fflate = window.fflate;
     
     const generateButton = document.querySelector("#generate-button");
     generateButton.addEventListener("click", generateCode);
     
-    // const addPointButton = document.querySelector("#add-point-button")
-    // addPointButton.addEventListener("click", addPoint)
+    const addPointButton = document.querySelector("#add-point-button");
+    addPointButton.addEventListener("click", addPoint);
+
+        
+    const removeLastPointButton = document.querySelector("#remove-last-point-button");
+    removeLastPointButton.addEventListener("click", removeLastPoint);
 
     const copyButton = document.querySelector("#copy-button");
     copyButton.addEventListener("click", copyCode);
 }
 
+let newPointNumber = 1;
+let pointDisplayNumber = 1;
 main();

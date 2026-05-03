@@ -11,43 +11,26 @@
 <body>
     <h1>Sprocket Rocket Tool Editor</h1>
 
+    <h2>Info:</h2>
+    <ul>
+        <li>All numbers must be between -138 and 117.</li>
+        <li>The X coordinate increases going right, and decreases going left.</li>
+        <li>The Y coordinate increases going down, and decreases going up.</li>
+    </ul>
+
     <form action="">
         
         <fieldset id="point-coordinates">
             <legend>Point coordinates</legend>
-            
-            <div id="point-1-coordinates">
-                <label>Point 1: </label>
-                <span>
-                    <label for="point-1-x">x:</label>
-                    <input type="number" id="point-1-x" max="117" min="-138" class="coordinate-input">
-                    <label for="point-1-y">y:</label>
-                    <input type="number" id="point-1-y" max="117" min="-138" class="coordinate-input">
-                </span>
-            </div>
-            <div id="point-2-coordinates">
-                <label>Point 2: </label>
-                <span>
-                    <label for="point-2-x">x:</label>
-                    <input type="number" id="point-2-x" max="117" min="-138" class="coordinate-input">
-                    <label for="point-2-y">y:</label>
-                    <input type="number" id="point-2-y" max="117" min="-138" class="coordinate-input">
-                </span>
-            </div>
-            <div id="point-3-coordinates">
-                <label>Point 3: </label>
-                <span>
-                    <label for="point-3-x">x:</label>
-                    <input type="number" id="point-3-x" max="117" min="-138" class="coordinate-input">
-                    <label for="point-3-y">y:</label>
-                    <input type="number" id="point-3-y" max="117" min="-138" class="coordinate-input">
-                </span>
-            </div>
-            <input type="checkbox" id="join-up" checked>
-            <label for="join-up">Join first and last points</label><br>
 
             <button type="button" id="add-point-button">Add point</button>
-            <button type="button" id="remove-point-button">Remove point</button>
+            <button type="button" id="remove-last-point-button">Remove last point</button>
+
+            <div id="coordinate-inputs">
+            </div>
+
+            <input type="checkbox" id="join-up" checked>
+            <label for="join-up">Join first and last points</label><br>
 
         </fieldset>
 
