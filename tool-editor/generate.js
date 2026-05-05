@@ -1,49 +1,63 @@
 function createUnencodedArray() {
-    let dataArray = [];
-    let pointCoordinateInputs = document.querySelectorAll(".coordinate-input");
-    let pointValue = 0;
- 
-    for (let pointCoordinate of pointCoordinateInputs) {
-        pointValue = pointCoordinate.valueAsNumber;
-        dataArray.push(pointValue);
+        let dataArray = [];
+        let pointCoordinateInputs = document.querySelectorAll(".coordinate-input");
+        let pointValue = 0;
+    
+        for (let pointCoordinate of pointCoordinateInputs) {
+            pointValue = pointCoordinate.valueAsNumber;
+            
+            /* if (pointValue === NaN) {
+                return "NAN-ERROR";
+            }
 
-        //if (pointValue < -138 || pointValue > 117) {
-        //    break generateBlock;
-        //}
-    }
-    let joinFirstLastBox =  document.querySelector("#join-up");
-    if (joinFirstLastBox.checked) {
-        dataArray = dataArray.concat(dataArray.slice(0,2));
-    }
+            if (pointValue < -138 || pointValue > 117 || pointValue) {
+                return "POINT-VALUE-RANGE-ERROR";
 
-    let toolTypeButtons = document.getElementsByName("tool-type");
+            }   
 
-    for (let toolTypeButton of toolTypeButtons) {
-        if (toolTypeButton.checked ) {
-            switch (toolTypeButton.id) {
-                case "glued-button":
-                    dataArray.push(0);
-                    break;
-                case "swing-button":
-                    dataArray.push(1);
-                    break;
-                case "spin-button":
-                    dataArray.push(3); // in WAGSR's code, the internal IDs for spin and torque do not line up with the order you unlock them
-                    break;
-                case "torque-button":
-                    dataArray.push(2);
-                    break;
-                
+            dataArray.push(pointValue); */
+
+        }
+
+        let joinFirstLastBox =  document.querySelector("#join-up");
+        if (joinFirstLastBox.checked) {
+            dataArray = dataArray.concat(dataArray.slice(0,2));
+        }
+
+        let toolTypeButtons = document.getElementsByName("tool-type");
+
+        for (let toolTypeButton of toolTypeButtons) {
+            if (toolTypeButton.checked ) {
+                switch (toolTypeButton.id) {
+                    case "glued-button":
+                        dataArray.push(0);
+                        break;
+                    case "swing-button":
+                        dataArray.push(1);
+                        break;
+                    case "spin-button":
+                        dataArray.push(3); // in WAGSR's code, the internal IDs for spin and torque do not line up with the order you unlock them
+                        break;
+                    case "torque-button":
+                        dataArray.push(2);
+                        break;
+                    /* default:
+                        return "NO-TOOL-TYPE-ERROR"; */
+                }
             }
         }
-    }
-    
     console.log(dataArray);
     return dataArray;
 }
 
     function generateCode(){
         let unencodedArray = createUnencodedArray();
+        outputText = document.querySelector("#output-text");
+
+       /* if (unencodedArray === "NAN-ERROR") {
+            outputText.value = "Please input a number into all coordinate boxes";
+            return;
+        } */
 
         for (let i = 0; i < (unencodedArray.length - 1); i++) {
             unencodedArray[i] += 10; // make coordinates relative to top left corner of edit bay instead of ship center
@@ -51,13 +65,13 @@ function createUnencodedArray() {
         }
 
         unencodedUInt8 = new Uint8Array(unencodedArray);
-        //console.log(unencodedUInt8);
+        console.log(unencodedUInt8);
         deflatedUInt8= fflate.deflateSync(unencodedUInt8);
         //console.log(deflatedUInt8);
         encodedUInt8 = deflatedUInt8.toBase64();
         //console.log(encodedUInt8);
         
-        outputText = document.querySelector("#output-text");
+
         outputText.value = encodedUInt8;
     }
 
