@@ -13,10 +13,10 @@ function createUnencodedArray() {
             if (pointValue < -138 || pointValue > 117 || pointValue) {
                 return "POINT-VALUE-RANGE-ERROR";
 
-            }   
+            }    */
 
-            dataArray.push(pointValue); */
 
+            dataArray.push(pointValue);
         }
 
         let joinFirstLastBox =  document.querySelector("#join-up");
