@@ -9,15 +9,18 @@
     <script src="generate.js" defer></script>
     <script src="https://unpkg.com/fflate@0.8.2/umd/index.js"></script>
 </head>
+
 <body>
+
+<div id="container">
     <h1>Sprocket Rocket Mega Editor</h1>
 
-    <h2>Info:</h2>
-    <ul>
+    <h2 id="info-heading">Info:</h2>
+    <ul id="info-list">
         <li>The X coordinate increases going right, and decreases going left.</li>
         <li>The Y coordinate increases going down, and decreases going up.</li>
         <li>Point (0,0) is the ship's centre (orange dot).</li>
-        <li>All numbers must be between -138 and 117 (your tool code will be glitched if any numbers are outside this range).</li>
+        <li>All numbers must be between -138 and 117.</li>
         <li>All boxes must be filled, and you must select a tool type.</li>
     </ul>
 
@@ -26,20 +29,25 @@
         <fieldset id="point-coordinates">
             <legend>Point coordinates</legend>
 
-            <button type="button" id="add-point-button">Add point</button>
-            <button type="button" id="remove-last-point-button">Remove last point</button>
-
-            <div id="coordinate-inputs">
+            <div id="point-buttons">
+                <button type="button" id="add-point-button">Add point</button>
+                <button type="button" id="remove-last-point-button">Remove last point</button>
             </div>
 
-            <input type="checkbox" id="join-up" checked>
-            <label for="join-up">Join first and last points</label><br>
+            <div id="coordinate-inputs">
+
+            </div>
+            
+            <div id="checkbox-holder">
+                <input type="checkbox" id="join-up" checked>
+                <label for="join-up">Join first and last points</label><br>
+            </div>
 
         </fieldset>
 
         <fieldset id="tool-type-div">
             <legend>Tool type</legend>
-            <ul>
+            <ul id="button-holder">
                 <li>
                     <input type="radio" name="tool-type" id="glued-button" required>
                     <label for="glued-button">Glued</label>
@@ -71,5 +79,9 @@
         <output id="output-text"></output><br>
         <button id="copy-button">Copy</button>
     </div>
+
+</div>
+
 </body>
+
 </html>

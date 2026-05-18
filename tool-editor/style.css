@@ -1,3 +1,51 @@
 body {
-    font-family:  Helvetica, Arial, sans-serif;
+    font-family:  "Helvetica", "Arial", sans-serif;
+    margin-left: 1em;
+}
+
+#info-heading {
+    margin-bottom: 0.2em;
+}
+
+#info-list {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+#point-coordinates {
+	margin-bottom: 0.5em;
+}
+
+#point-buttons {
+    margin-bottom: 0.3em;
+}
+
+legend {
+    font-weight: bold;
+}
+
+#checkbox-holder {
+    margin-top: 0.3em
+}
+
+#button-holder {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+#generate-button {
+    margin-top: 0.6em;
+}
+
+.point {
+    margin-bottom: 1px;
+}
+
+.point-dash {
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+}
+
+.y-text {
+    margin-left: 0.7em;
 }
