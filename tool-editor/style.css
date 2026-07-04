@@ -1,6 +1,7 @@
 body {
     font-family:  "Helvetica", "Arial", sans-serif;
     margin-left: 1em;
+    margin-right: 1em
 }
 
 #info-heading {
@@ -37,15 +38,19 @@ legend {
     margin-top: 0.6em;
 }
 
-.point {
-    margin-bottom: 1px;
+table {
+    border-collapse: collapse;
+    border: 1px solid;
+    table-layout: fixed;
 }
 
-.point-dash {
-    margin-left: 0.3em;
-    margin-right: 0.3em;
+td, th {
+    border: 1px solid;
+    border-color: gray;
+    padding: 0.3em;
 }
 
-.y-text {
-    margin-left: 0.7em;
+#top-row {
+    border-bottom: 2px solid;
+    border-color: dimgray;
 }

@@ -100,20 +100,18 @@ function displayCode(text) {
 function addPoint() {
     const coordinateInputs = document.querySelector("#coordinate-inputs");
 
-    let newElement = document.createElement("div");
+    let newElement = document.createElement("tr");
     newElement.id = `point-${newPointNumber}-coordinates`;
     newElement.className = "point";
     newElement.innerHTML =
     `
-        <label>Point ${newPointNumber}</label>
-
-        <span class="point-dash">-</span>
-        <span>
-            <label for="point-${newPointNumber}-x" class="x-text">x:</label>
+        <th>${newPointNumber}</th>
+        <td>
             <input type="number" id="point-${newPointNumber}-x" max="117" min="-138" class="coordinate-input">
-            <label for="point-${newPointNumber}-y" class="y-text">y:</label>
+        </td>
+        <td>
             <input type="number" id="point-${newPointNumber}-y" max="117" min="-138" class="coordinate-input">
-        </span>
+        </td>
     `;
     
     // let removeNewPointButton = newElement.querySelector("button");
@@ -125,7 +123,9 @@ function addPoint() {
 
 function removeLastPoint() {
     let points = document.querySelector("#coordinate-inputs");
-    points.lastChild.remove();
+
+    if (newPointNumber > 1) { points.lastChild.remove(); }
+
     newPointNumber -= (newPointNumber > 1) ? 1 : 0;
 }
 
