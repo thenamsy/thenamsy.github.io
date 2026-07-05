@@ -14,11 +14,13 @@ body {
 }
 
 #point-coordinates {
-	margin-bottom: 0.5em;
+	margin-bottom: 1em;
+    padding-top: 0.7em;
+    padding-bottom: 1em;
 }
 
 #point-buttons {
-    margin-bottom: 0.3em;
+    margin-bottom: 0.5em;
 }
 
 legend {
@@ -35,7 +37,7 @@ legend {
 }
 
 #generate-button {
-    margin-top: 0.6em;
+    margin-top: 1em;
 }
 
 table {
@@ -54,4 +56,3 @@ td, th {
     border-bottom: 2px solid;
     border-color: gray;
 }
-
