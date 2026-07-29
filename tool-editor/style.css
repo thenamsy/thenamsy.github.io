@@ -1,7 +1,23 @@
+@font-face {
+    font-family: "HelveticaNeueLT Std Blk";
+    src: url("fonts/5_HelveticaNeueLT\ Std\ Blk.woff");
+}
+
+@font-face {
+    font-family: "HelveticaNeueLT Std Med";
+    src: url("fonts/35_HelveticaNeueLT\ Std\ Med.woff");
+}
 body {
-    font-family:  "Helvetica", "Arial", sans-serif;
-    margin-left: 1em;
-    margin-right: 1em
+    font-family:"HelveticaNeueLT Std Med", "Helvetica", "Arial", sans-serif;
+    background: url("background.jpg") repeat; 
+}
+
+#container {
+    margin-left: min(10rem,20vw);
+    margin-right: min(10rem,20vw);
+    background: white fixed;
+    padding: 1em 2em 2em 2em;
+    border-radius: 2em;
 }
 
 #info-heading {
@@ -55,4 +71,40 @@ td, th {
 #top-row {
     border-bottom: 2px solid;
     border-color: gray;
+}
+
+h1 {
+    font-family: "HelveticaNeueLT Std Blk", "Helvetica", "Arial", sans-serif;
+    font-weight: lighter;
+}
+
+button {
+
+    border: none;
+    border-radius: 0.3em;
+    padding: 0.3em;
+    font-family: "HelveticaNeueLT Std Med", "Helvetica", "Arial", sans-serif;
+    cursor: pointer;
+}
+
+.blue-button {
+    background-color: #005cc1;
+    color: white;
+}
+
+.blue-button:hover {
+    background-color: #014e98;
+}
+
+.yellow-button {
+    background-color: #ffdd14;
+    color: black;
+}
+
+.yellow-button:hover {
+    background-color: #fdca02;
+}
+
+input {
+    accent-color: #005cc1;
 }
