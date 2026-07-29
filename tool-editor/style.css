@@ -9,7 +9,9 @@
 }
 body {
     font-family:"HelveticaNeueLT Std Med", "Helvetica", "Arial", sans-serif;
-    background: url("background.jpg") repeat; 
+    background-image: url("background.jpg");
+    background-size: cover;
+    image-rendering: pixelated;
 }
 
 #container {
@@ -107,4 +109,8 @@ button {
 
 input {
     accent-color: #005cc1;
+}
+
+#add-point-button {
+    margin-right: 0.2em;
 }
