@@ -15,8 +15,8 @@ body {
 }
 
 #container {
-    margin-left: min(10rem,20vw);
-    margin-right: min(10rem,20vw);
+    margin-left: min(10rem,7vw);
+    margin-right: min(10rem,7vw);
     background: white fixed;
     padding: 1em 2em 2em 2em;
     border-radius: 2em;
