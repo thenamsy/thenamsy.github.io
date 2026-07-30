@@ -114,3 +114,7 @@ input {
 #add-point-button {
     margin-right: 0.2em;
 }
+
+.coordinate-input {
+    font-family: "HelveticaNeueLT Std Med", "Helvetica", "Arial", sans-serif;
+}
