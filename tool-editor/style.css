@@ -1,3 +1,7 @@
+:root {
+    --wagsr-blue: #005cc1;
+}
+
 @font-face {
     font-family: "HelveticaNeueLT Std Blk";
     src: url("fonts/5_HelveticaNeueLT\ Std\ Blk.woff");
@@ -7,16 +11,18 @@
     font-family: "HelveticaNeueLT Std Med";
     src: url("fonts/35_HelveticaNeueLT\ Std\ Med.woff");
 }
+
 body {
+    display: flex;
+    justify-content: center;
     font-family:"HelveticaNeueLT Std Med", "Helvetica", "Arial", sans-serif;
     background-image: url("background.jpg");
     background-size: cover;
     image-rendering: pixelated;
 }
 
+
 #container {
-    margin-left: min(10rem,7vw);
-    margin-right: min(10rem,7vw);
     background: white fixed;
     padding: 1em 2em 2em 2em;
     border-radius: 2em;
@@ -59,9 +65,12 @@ legend {
 }
 
 table {
+    display: block;
+    height: 15rem;
+    width: fit-content;
+    overflow-y: scroll;
     border-collapse: collapse;
-    border: 1px solid;
-    table-layout: fixed;
+    border: 1px solid gray;
 }
 
 td, th {
@@ -90,7 +99,7 @@ button {
 }
 
 .blue-button {
-    background-color: #005cc1;
+    background-color: var(--wagsr-blue);
     color: white;
 }
 
@@ -108,7 +117,7 @@ button {
 }
 
 input {
-    accent-color: #005cc1;
+    accent-color: var(--wagsr-blue);
 }
 
 #add-point-button {
@@ -117,4 +126,8 @@ input {
 
 .coordinate-input {
     font-family: "HelveticaNeueLT Std Med", "Helvetica", "Arial", sans-serif;
+}
+
+input[type=number] {
+    color: var(--wagsr-blue);
 }

@@ -119,6 +119,8 @@ function addPoint() {
 
     coordinateInputs.appendChild(newElement);
     newPointNumber += 1;
+
+    coordinateInputs.scroll({top: coordinateInputs.scrollHeight});
 }
 
 function removeLastPoint() {
