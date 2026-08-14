@@ -130,4 +130,5 @@ input {
 
 input[type=number] {
     color: var(--wagsr-blue);
+    font-size: 11pt;
 }
