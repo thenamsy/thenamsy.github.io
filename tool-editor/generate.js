@@ -62,7 +62,7 @@ function generateCode(){
         }
 
         if (unencodedArray === "POINT-VALUE-RANGE-ERROR") {
-            displayError("All numbers must be between -117 and 138.");
+            displayError("All numbers must be between -138 and 117.");
             return;
         }
 
