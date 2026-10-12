@@ -2,7 +2,9 @@ function createUnencodedArray() {
         let dataArray = [];
         let pointCoordinateInputs = document.querySelectorAll(".coordinate-input");
         let pointValue = 0;
-    
+
+
+
         for (let pointCoordinate of pointCoordinateInputs) {
             pointValue = pointCoordinate.valueAsNumber;
             
@@ -22,6 +24,10 @@ function createUnencodedArray() {
         let joinFirstLastBox =  document.querySelector("#join-up");
         if (joinFirstLastBox.checked) {
             dataArray = dataArray.concat(dataArray.slice(0,2));
+        }
+
+        if (dataArray.length < 6) {
+            return "NOT-ENOUGH-POINTS-ERROR";
         }
 
         let toolTypeButtons = document.getElementsByName("tool-type");
@@ -45,6 +51,7 @@ function createUnencodedArray() {
             }    
         }
 
+
         if (dataArray.length % 2 === 0) {
             return "NO-TOOL-TYPE-ERROR";
         }
@@ -55,6 +62,11 @@ function createUnencodedArray() {
 function generateCode(){
         let unencodedArray = createUnencodedArray();
         console.log(unencodedArray);
+
+        if (unencodedArray === "NOT-ENOUGH-POINTS-ERROR") {
+            displayError("There must be at least 3 points, including the extra point from joining up.");
+            return;
+        }
 
        if (unencodedArray === "NAN-ERROR") {
             displayError("Please input a number into all coordinate boxes.");
@@ -70,6 +82,8 @@ function generateCode(){
             displayError("Please select a tool type.");
             return;
         }
+
+
 
         for (let i = 0; i < (unencodedArray.length - 1); i++) {
             unencodedArray[i] += 10; // make coordinates relative to top left corner of edit bay instead of ship center
