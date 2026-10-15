@@ -26,6 +26,7 @@ body {
     background: white fixed;
     padding: 1em 2em 2em 2em;
     border-radius: 2em;
+    width: fit-content;
 }
 
 #info-heading {
@@ -34,7 +35,7 @@ body {
 
 #info-list {
     margin-top: 0;
-    margin-bottom: 1.5em;
+    margin-bottom: 0;
 }
 
 #point-coordinates {
@@ -131,4 +132,37 @@ input {
 input[type=number] {
     color: var(--wagsr-blue);
     font-size: 11pt;
+}
+
+h2 {
+    display: inline;
+}
+
+details {
+    width: revert-layer;
+    margin-bottom: 1em;
+}
+
+summary {
+    display: inline;
+}
+
+details>summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none
+}
+
+summary::after {
+  content: ' ►';
+}
+
+summary:hover {
+    cursor: pointer;
+}
+
+details[open] summary:after {
+  content: " ▼";
 }
