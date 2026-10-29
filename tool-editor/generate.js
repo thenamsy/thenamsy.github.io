@@ -1,22 +1,26 @@
+const customErrors = {
+    "NAN-ERROR": "Please input a number into all coordinate boxes.",
+    "POINT-VALUE-RANGE-ERROR": "All numbers must be between -138 and 117.",
+    "NOT-ENOUGH-POINTS-ERROR": "There must be at least 3 points, including the extra point from joining up.",
+    "NO-TOOL-TYPE-ERROR": "Please select a tool type."
+};
+
 function createUnencodedArray() {
-        let dataArray = [];
-        let pointCoordinateInputs = document.querySelectorAll(".coordinate-input");
-        let pointValue = 0;
+    let dataArray = [];
+    let pointCoordinateInputs = document.querySelectorAll(".coordinate-input");
+    let pointValue = 0;
 
-
-
+    try {
         for (let pointCoordinate of pointCoordinateInputs) {
             pointValue = pointCoordinate.valueAsNumber;
             
             if (isNaN(pointValue)) {
-                return "NAN-ERROR";
+                throw new Error("NAN-ERROR");
             }
 
             if (pointValue < -138 || pointValue > 117) {
-                return "POINT-VALUE-RANGE-ERROR";
-
+                throw new Error("POINT-VALUE-RANGE-ERROR");
             }
-
 
             dataArray.push(pointValue);
         }
@@ -27,7 +31,7 @@ function createUnencodedArray() {
         }
 
         if (dataArray.length < 6) {
-            return "NOT-ENOUGH-POINTS-ERROR";
+            throw new Error("NOT-ENOUGH-POINTS-ERROR");
         }
 
         let toolTypeButtons = document.getElementsByName("tool-type");
@@ -51,39 +55,23 @@ function createUnencodedArray() {
             }    
         }
 
-
         if (dataArray.length % 2 === 0) {
-            return "NO-TOOL-TYPE-ERROR";
+            throw new Error("NO-TOOL-TYPE-ERROR");
         }
+
     console.log(dataArray);
     return dataArray;
+    }
+
+    catch (error) {
+        displayError(customErrors[error.message]);
+        return;
+    }
 }
 
 function generateCode(){
         let unencodedArray = createUnencodedArray();
         console.log(unencodedArray);
-
-        if (unencodedArray === "NOT-ENOUGH-POINTS-ERROR") {
-            displayError("There must be at least 3 points, including the extra point from joining up.");
-            return;
-        }
-
-       if (unencodedArray === "NAN-ERROR") {
-            displayError("Please input a number into all coordinate boxes.");
-            return;
-        }
-
-        if (unencodedArray === "POINT-VALUE-RANGE-ERROR") {
-            displayError("All numbers must be between -138 and 117.");
-            return;
-        }
-
-        if (unencodedArray === "NO-TOOL-TYPE-ERROR") {
-            displayError("Please select a tool type.");
-            return;
-        }
-
-
 
         for (let i = 0; i < (unencodedArray.length - 1); i++) {
             unencodedArray[i] += 10; // make coordinates relative to top left corner of edit bay instead of ship center
@@ -161,7 +149,6 @@ function main() {
     
     const addPointButton = document.querySelector("#add-point-button");
     addPointButton.addEventListener("click", addPoint);
-
         
     const removeLastPointButton = document.querySelector("#remove-last-point-button");
     removeLastPointButton.addEventListener("click", removeLastPoint);
